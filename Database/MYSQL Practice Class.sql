@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2019 at 12:13 PM
+-- Generation Time: Dec 25, 2019 at 12:22 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -162,22 +162,31 @@ CREATE TABLE `table_practicestudent` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `table_primeprofessor`
+--
+
+CREATE TABLE `table_primeprofessor` (
+  `idPrimeProfessor` char(10) COLLATE utf8_persian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `table_professor`
 --
 
 CREATE TABLE `table_professor` (
-  `idProfessor` char(10) COLLATE utf8_persian_ci NOT NULL,
-  `isPrime` bit(1) NOT NULL
+  `idProfessor` char(10) COLLATE utf8_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 --
 -- Dumping data for table `table_professor`
 --
 
-INSERT INTO `table_professor` (`idProfessor`, `isPrime`) VALUES
-('380395', b'0'),
-('380460', b'0'),
-('380491', b'0');
+INSERT INTO `table_professor` (`idProfessor`) VALUES
+('380395'),
+('380460'),
+('380491');
 
 -- --------------------------------------------------------
 
@@ -713,6 +722,12 @@ ALTER TABLE `table_practicestudent`
   ADD KEY `groupeNumberPracticeClass` (`groupeNumberPracticeClass`);
 
 --
+-- Indexes for table `table_primeprofessor`
+--
+ALTER TABLE `table_primeprofessor`
+  ADD PRIMARY KEY (`idPrimeProfessor`);
+
+--
 -- Indexes for table `table_professor`
 --
 ALTER TABLE `table_professor`
@@ -846,6 +861,12 @@ ALTER TABLE `table_practicestudent`
   ADD CONSTRAINT `table_practicestudent_ibfk_4` FOREIGN KEY (`termPracticeClass`) REFERENCES `table_practice` (`termPracticeClass`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `table_practicestudent_ibfk_5` FOREIGN KEY (`numberYearFromStart`) REFERENCES `table_practice` (`numberYearFromStart`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `table_practicestudent_ibfk_6` FOREIGN KEY (`groupeNumberPracticeClass`) REFERENCES `table_practice` (`groupeNumberPracticeClass`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `table_primeprofessor`
+--
+ALTER TABLE `table_primeprofessor`
+  ADD CONSTRAINT `table_primeprofessor_ibfk_1` FOREIGN KEY (`idPrimeProfessor`) REFERENCES `table_professor` (`idProfessor`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `table_professor`
