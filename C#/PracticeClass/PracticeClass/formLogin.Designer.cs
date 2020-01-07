@@ -32,7 +32,10 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+
+        private void InitializeComponent()
+        {
+
             this.components = new System.ComponentModel.Container();
             this.lblId = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -147,7 +150,9 @@
             this.Controls.Add(this.lblId);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+
             this.Margin = new System.Windows.Forms.Padding(2);
+
             this.Name = "formLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formLogin";

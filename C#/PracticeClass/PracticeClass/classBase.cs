@@ -24,7 +24,7 @@ namespace PracticeClass {
     struct ShowPractice {
         public short number;
         public string link;
-        public int part;
+        public short part;
         public string idUploader;
     }
     struct ShowStudent {
@@ -251,6 +251,23 @@ namespace PracticeClass {
                 result.Add(new ShowCourse { id = item.idCourse, name = item.nameCourse });
             }
             return result;
+        }
+      //get a id for course
+       public string GetIdCourse(short groupNumber, bool term, short year)
+        {
+            string idCours="";
+            var ID = from practiceClass in database.viewstudentlistclass
+                     where (
+                         practiceClass.numberYearFromStart == year &&
+                         practiceClass.termPracticeClass == term &&
+                         practiceClass.groupeNumberPracticeClass == groupNumber
+                         )
+                     select new
+                     {  idCours = practiceClass.idCourse };
+            foreach (var item in ID)
+                idCours = item.idCours;
+                             
+            return idCours;
         }
     }
 }
