@@ -15,7 +15,7 @@ namespace PracticeClass
         List<ShowClass> onGoingClassesList = null;
         classProfessor thisProfessor = null;
         classPracticeClass thisPractisClass = null;
-        classBase temp = new classBase();
+         classBase temp = new classBase();
         //false=Practice and quiz , true=Home
         bool isInHome = true;
 
@@ -283,6 +283,7 @@ namespace PracticeClass
         private void iconHome_Click(object sender, EventArgs e)
         {
             iconHome.Visible = false;
+            tabControl1.SelectTab(tabPage1);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -344,7 +345,7 @@ namespace PracticeClass
             else
             {
                 thisPractisClass.AddSolvedPractice(selectedClassPractice[rowIndexTab2Practice].number,
-                     (short) selectedClassPractice[rowIndexTab2Practice].part,
+                     (short)selectedClassPractice[rowIndexTab2Practice].part,
                       thisProfessor.GetID(), bunifuMetroTextboxTab5LinkPractice.Text);
                 MessageBox.Show("Upload done successfully.");
                 labelTab6NumberPartPractice.Text = ("Practice " + selectedClassPractice[rowIndexTab2Practice].number.ToString()
@@ -415,7 +416,7 @@ namespace PracticeClass
             AddClass_ProfessorName.Visible =
             AddClass_submitButt.Visible =
             AddClass_TALable.Visible =
-            AddClass_TATextbox.Visible = 
+            AddClass_TATextbox.Visible =
             addClass_warningLbl.Visible = AddClass_CheckBox.Checked;
         }
 
@@ -426,14 +427,14 @@ namespace PracticeClass
             {
                 classBase tempbase = new classBase();
                 int result = tempbase.AddNewPracticeClass(AddClass_courseTextbox.Text, AddClass_courseTextbox.Text, tempbase.get_numberyear(), tempbase.get_term());
-              
+
                 switch (result)
                 {
                     case 1:
-                        
+
                         if (buttonTab1Archve.Text != "Archive")
                         {
-                        dataGridViewTab1.Rows.Clear();
+                            dataGridViewTab1.Rows.Clear();
                             List<ShowClass> onGoingClassesList = new List<ShowClass>();
                             onGoingClassesList = thisProfessor.GetProfessorOnGoingClassesList();
                             if (onGoingClassesList.Count != 0)
@@ -520,7 +521,7 @@ namespace PracticeClass
         {
             AddStudent_stdID_TextBox.Visible =
                AddStudent_studentIdLbl.Visible =
-               AddStudent_submitBtn.Visible = 
+               AddStudent_submitBtn.Visible =
                AddStudent_warningLbl.Visible = AddStudent_checkBox.Checked;
         }
 

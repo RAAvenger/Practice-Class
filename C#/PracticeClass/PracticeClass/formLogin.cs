@@ -39,6 +39,7 @@ namespace PracticeClass {
                 accountProfessor = temp.LoginProfessor(id, pass);
                 if (accountProfessor != null) {
                     formProfessor formForProfessor = new formProfessor(id, pass);
+                    //formProfessor.te
                     formForProfessor.Show();
                 }
                 else {
